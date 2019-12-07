@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>专业综合实验微机部分（二） | 流冰之地</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="始继续填坑，今天晚上搞完三次微机实验。第2次时间2019.03.19 实验内容&amp;emsp;&amp;emsp;利用8255A可编程并行口和8253计数器两个芯片，完成以下两个内容。">
+<meta name="keywords" content="微机,实验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专业综合实验微机部分（二）">
+<meta property="og:url" content="http:&#x2F;&#x2F;blog.icelu.top&#x2F;2019-05-20-weiji_2.html">
+<meta property="og:site_name" content="流冰之地">
+<meta property="og:description" content="始继续填坑，今天晚上搞完三次微机实验。第2次时间2019.03.19 实验内容&amp;emsp;&amp;emsp;利用8255A可编程并行口和8253计数器两个芯片，完成以下两个内容。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;05&#x2F;20&#x2F;5ce29f1bb9b4d82314.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;05&#x2F;20&#x2F;5ce29f5f0614881980.jpg">
+<meta property="og:updated_time" content="2019-05-20T13:19:12.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;05&#x2F;20&#x2F;5ce29f1bb9b4d82314.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="流冰之地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">流冰之地</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.icelu.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-weiji_2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019-05-20-weiji_2.html" class="article-date">
+  <time datetime="2019-05-20T11:55:07.000Z" itemprop="datePublished">2019-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/study/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      专业综合实验微机部分（二）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="始"><a href="#始" class="headerlink" title="始"></a>始</h2><p>继续填坑，今天晚上搞完三次微机实验。第2次时间2019.03.19</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>&emsp;&emsp;利用8255A可编程并行口和8253计数器两个芯片，完成以下两个内容。<a id="more"></a></p>
+<p>&emsp;&emsp;内容一：利用8255A的PA口作为输入口，采集8个开关的信息，利用8255A的PB口作为输出口，控制8个发光二极管，开关具有延迟效应，延迟效应由计数器工作方式0来控制。使得打开开关时，不立刻亮或灭。</p>
+<p>&emsp;&emsp;内容二：设计一个电路，不需要开关，程序控制8个灯循环点亮，每个灯亮大于0.25秒，即一个循环周期大于2秒。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="内容一"><a href="#内容一" class="headerlink" title="内容一"></a>内容一</h4><pre><code class="asm">CODE    SEGMENT
+ASSUME  CS:CODE
+IOCONPT EQU    0FF2BH
+IOBPT   EQU    0FF29H
+IOAPT   EQU    0FF28H
+IOCPT   EQU    0FF2AH
+TCONTRO EQU    0043H
+TCNO0   EQU    0040H
+ORG     11B0H
+START:  MOV    AL,91H
+        MOV    DX,IOCONPT
+        OUT    DX,AL
+        NOP
+        NOP
+        NOP
+
+IOLED1: MOV    DX,IOAPT
+        IN     AL,DX
+        MOV    BL,AL
+        MOV    DX,TCONTRO
+        MOV    AL,30H
+        OUT    DX,AL
+        MOV    DX,TCON0
+        MOV    AL,12H
+        OUT    DX,AL
+MOV     AL,7AH
+OUT     DX,AL
+IOLED2: MOV    DX,IOCPT
+        IN     AL,DX
+        CMP    AL,01H
+        JNE    IOLED2
+        MOV    AL,BL
+        OUT    DX,AL
+        JMP    IOLED1
+CODE    ENDS
+END     START</code></pre>
+<h4 id="内容二"><a href="#内容二" class="headerlink" title="内容二"></a>内容二</h4><pre><code class="asm">CODE        SEGMENT
+ASSUME      CS:CODE
+ORG         1234H
+IOCONPT     EQU    0FF28H
+IOBPT       EQU    0FF29H
+START:      MOV    DX,0FF2BH
+            MOV    AL,90H
+            OUT    DX,AL
+            NOP
+            NOP
+            NOP
+            MOV    AL,0FEH
+D1:         MOV    DX,IOBPT
+            OUT    DX,AL
+            MOV    CX,0FFFFH
+            ROL    AL,1
+            CALL   ABCD
+ABCD:       LOOP   ABCD
+            JMP    D1
+            RET
+CODDE       ENDS
+END         START</code></pre>
+<h3 id="接线图"><a href="#接线图" class="headerlink" title="接线图"></a>接线图</h3><p><img src="https://i.loli.net/2019/05/20/5ce29f1bb9b4d82314.jpg" alt="内容一" title="内容一"></p>
+<p><img src="https://i.loli.net/2019/05/20/5ce29f5f0614881980.jpg" alt="内容二" title="内容二"></p>
+<h2 id="尾"><a href="#尾" class="headerlink" title="尾"></a>尾</h2><p>抱霏霏大腿自不必多说，祝各位国际计量日快乐q(≧▽≦q)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.icelu.top/2019-05-20-weiji_2.html" data-id="ck3v168rf0009qcuu3pq291m2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiyan/" rel="tag">实验</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weiji/" rel="tag">微机</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019-05-20-weiji_3.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          专业综合实验微机部分（三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019-05-20-weiji_1.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">专业综合实验微机部分（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/study/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/build/">维护</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shiyan/" rel="tag">实验</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weiji/" rel="tag">微机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/shiyan/" style="font-size: 20px;">实验</a> <a href="/tags/weiji/" style="font-size: 20px;">微机</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019-11-03-dianshiju.html">看剧记录</a>
+          </li>
+        
+          <li>
+            <a href="/2019-08-21-common-commands.html">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_3.html">专业综合实验微机部分（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_2.html">专业综合实验微机部分（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_1.html">专业综合实验微机部分（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 半枫<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>专业综合实验微机部分（一） | 流冰之地</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。 &amp;emsp;&amp;emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验">
+<meta name="keywords" content="微机,实验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专业综合实验微机部分（一）">
+<meta property="og:url" content="http:&#x2F;&#x2F;blog.icelu.top&#x2F;2019-05-20-weiji_1.html">
+<meta property="og:site_name" content="流冰之地">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。 &amp;emsp;&amp;emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-20T13:22:50.220Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="流冰之地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">流冰之地</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.icelu.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-weiji_1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019-05-20-weiji_1.html" class="article-date">
+  <time datetime="2019-05-20T11:02:16.000Z" itemprop="datePublished">2019-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/study/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      专业综合实验微机部分（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。</p>
+<p>&emsp;&emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验报告。<a id="more"></a></p>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>1.计数器0工作方式0，即计数结束中断，OUT与灯L1连接，CLK选择连接左下方T0-T7插口中的一个。T0-T7为分频器输出频率，实验箱频率源为8MHz；T0-T7=4MHz，2MHz，1MHz，500KHz，250KHz，62500Hz，31250Hz；从中选一个插口，即选一种频率（频率是指1s内输入的脉冲数）；要求计数器初值等价于时长1s。</p>
+<p>2.计数器工作方式1，OUT灯L2连接，GATE连接开关K1，CLK同上设计（可任选一个频率及计数器初值）。观察开关闭合时，灯的亮灭规律。</p>
+<p>3.计数器2工作方式2，速率发生器，OUT与灯L3连接；CLK同上设计（可任选一个频率与计数器初值），观察灯的亮灭规律</p>
+<h2 id="实验程序"><a href="#实验程序" class="headerlink" title="实验程序"></a>实验程序</h2><h3 id="实验内容一"><a href="#实验内容一" class="headerlink" title="实验内容一"></a>实验内容一</h3><pre><code class="asm">CODE    SEGMENT
+ASSUME  CS:CODE
+        ORG 1290H
+START:  JMP TCONT
+TCONTRO EQU 0043H
+TCON0   EQU 0040H
+TCONT:  MOV DX,TCONTRO
+        MOV AL,,30H
+        OUT DX,AL
+        MOV DX,TCON0
+        MOV AL,12H
+        OUT DX,AL
+        MOV AL,7AH
+        OUT DX,AL
+        JMP $
+CODE    ENDS
+END     START</code></pre>
+<h3 id="实验内容二"><a href="#实验内容二" class="headerlink" title="实验内容二"></a>实验内容二</h3><pre><code class="asm">CODE    SEGMENT
+ASSUME  CS:CODE
+        ORG 1290H
+START:  JMP TCONT
+TCONTRO EQU 0043H
+TCON0   EQU 0041H
+TCONT:  MOV DX,TCONTRO
+        MOV AL,72H
+        OUT DX,AL
+        MOV DX,TCON0
+        MOV AL,12H
+        OUT DX,AL
+        MOV AL,7AH
+        OUT DX,AL
+        JMP $
+CODE    ENDS
+END     START</code></pre>
+<h3 id="实验内容三"><a href="#实验内容三" class="headerlink" title="实验内容三"></a>实验内容三</h3><pre><code class="asm">CODE    SEGMENT
+ASSUME  CS:CODE
+        ORG 1290H
+START:  JMP TCONT
+TCONTRO EQU 0043H
+TCON0   EQU 0041H
+TCON1   EQU 0040H
+TCONT:  MOV DX,TCONTRO
+        MOV AL,74H
+        OUT DX,AL
+        MOV DX,TCON0
+        MOV AL,24H
+        OUT DX,AL
+        MOV AL,0F4H
+        OUT DX,AL
+        MOV DX,TCONTRO
+        MOV AL,32H
+        OUT DX,AL
+        MOV DX,TCON1
+        MOV AL,12H
+        OUT DX,AL
+        MOV AL,7AH
+        OUT DX,AL
+        JMP $
+CODE    ENDS
+END     START</code></pre>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>照例是抱霏霏的大腿才得以完成，表示感谢</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.icelu.top/2019-05-20-weiji_1.html" data-id="ck3v168qt0002qcuu4tot6sg8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiyan/" rel="tag">实验</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weiji/" rel="tag">微机</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019-05-20-weiji_2.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          专业综合实验微机部分（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018-12-23-weiji_shiyan_jilu.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">微机实验记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/study/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/build/">维护</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shiyan/" rel="tag">实验</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weiji/" rel="tag">微机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/shiyan/" style="font-size: 20px;">实验</a> <a href="/tags/weiji/" style="font-size: 20px;">微机</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019-11-03-dianshiju.html">看剧记录</a>
+          </li>
+        
+          <li>
+            <a href="/2019-08-21-common-commands.html">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_3.html">专业综合实验微机部分（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_2.html">专业综合实验微机部分（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_1.html">专业综合实验微机部分（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 半枫<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

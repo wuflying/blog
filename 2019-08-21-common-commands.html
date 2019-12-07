@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>常用命令 | 流冰之地</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言整理一下维护博客常用的命令，就不用老是百度来必应去，麻烦死了。首先装上Git与Node.js。新建一个名为Hexo的文件夹，在此文件夹内右键Git Bash Here，然后按顺序执行指令就行。">
+<meta name="keywords" content="Hexo,Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用命令">
+<meta property="og:url" content="http:&#x2F;&#x2F;blog.icelu.top&#x2F;2019-08-21-common-commands.html">
+<meta property="og:site_name" content="流冰之地">
+<meta property="og:description" content="前言整理一下维护博客常用的命令，就不用老是百度来必应去，麻烦死了。首先装上Git与Node.js。新建一个名为Hexo的文件夹，在此文件夹内右键Git Bash Here，然后按顺序执行指令就行。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-21T11:36:33.000Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="流冰之地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">流冰之地</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.icelu.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-common-commands" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019-08-21-common-commands.html" class="article-date">
+  <time datetime="2019-08-21T11:36:33.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/build/">维护</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整理一下维护博客常用的命令，就不用老是百度来必应去，麻烦死了。首先装上<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>与<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>。新建一个名为Hexo的文件夹，在此文件夹内右键<code>Git Bash Here</code>，然后按顺序执行指令就行。<a id="more"></a>这是给我自己看的，所以写的比较简略。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo乃是万恶之源（手动滑稽），先来说它。</p>
+<pre><code>$ npm install -g hexo-cli
+$ hexo init
+$ npm install</code></pre><p>初始化完成，修改模板里的<code>Front-matter</code>，添加上标签，分类；修改<code>_config.yml</code>。</p>
+<pre><code>$ hexo g
+$ hexo s
+$ npm install hexo-deployer-git --save
+$ hexo d</code></pre><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="连接GitHub"><a href="#连接GitHub" class="headerlink" title="连接GitHub"></a>连接GitHub</h3><p>安装完成之后，输入命令来完成设置</p>
+<pre><code>$ git config --global user.name &quot;你名字&quot;
+$ git config --global user.email &quot;你邮箱&quot;</code></pre><p>生成SSH，我一般重装系统才会搞这一块的命令，所以旧的肯定没了，用不着检查和备份。</p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;</code></pre><p>在GitHub里粘贴，测试是否成功</p>
+<pre><code>$ ssh -T git@github.com</code></pre><h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><pre><code>git init
+git add .
+-git status
+git commit -m &quot;注释&quot;
+git remote add origin 链接
+git push -u origin master</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.icelu.top/2019-08-21-common-commands.html" data-id="ck3v168rs000hqcuu8oonhxrn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019-11-03-dianshiju.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          看剧记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019-05-20-weiji_3.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">专业综合实验微机部分（三）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/study/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/build/">维护</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shiyan/" rel="tag">实验</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weiji/" rel="tag">微机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/shiyan/" style="font-size: 20px;">实验</a> <a href="/tags/weiji/" style="font-size: 20px;">微机</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019-11-03-dianshiju.html">看剧记录</a>
+          </li>
+        
+          <li>
+            <a href="/2019-08-21-common-commands.html">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_3.html">专业综合实验微机部分（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_2.html">专业综合实验微机部分（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_1.html">专业综合实验微机部分（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 半枫<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

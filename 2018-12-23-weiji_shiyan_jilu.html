@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>微机实验记录 | 流冰之地</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;最近几周被实验所充斥。每周日下午连续三周的微机实验，周一周二周三连续三天的信号与系统实验，周二下午的高频实验以及周六上午（昨天）的半导体实验，我的天啊。还好实验大多比较水，跟演示实验差不多，不要求结果。当然啦，本文主角微机实验除外。遵循校历第12周周日即12月2号进行了第一次实验，做完了也不知道在干嘛，全程抱大腿，也没有记录，不提了。后两次依旧是抱大腿，就当单片机的初次">
+<meta name="keywords" content="微机,实验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微机实验记录">
+<meta property="og:url" content="http:&#x2F;&#x2F;blog.icelu.top&#x2F;2018-12-23-weiji_shiyan_jilu.html">
+<meta property="og:site_name" content="流冰之地">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;最近几周被实验所充斥。每周日下午连续三周的微机实验，周一周二周三连续三天的信号与系统实验，周二下午的高频实验以及周六上午（昨天）的半导体实验，我的天啊。还好实验大多比较水，跟演示实验差不多，不要求结果。当然啦，本文主角微机实验除外。遵循校历第12周周日即12月2号进行了第一次实验，做完了也不知道在干嘛，全程抱大腿，也没有记录，不提了。后两次依旧是抱大腿，就当单片机的初次">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-20T12:24:16.471Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="流冰之地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">流冰之地</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.icelu.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-weiji_shiyan_jilu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018-12-23-weiji_shiyan_jilu.html" class="article-date">
+  <time datetime="2018-12-23T04:06:15.000Z" itemprop="datePublished">2018-12-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/study/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微机实验记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;最近几周被实验所充斥。每周日下午连续三周的微机实验，周一周二周三连续三天的信号与系统实验，周二下午的高频实验以及周六上午（昨天）的半导体实验，我的天啊。还好实验大多比较水，跟演示实验差不多，不要求结果。当然啦，本文主角微机实验除外。遵循校历第12周周日即12月2号进行了第一次实验，做完了也不知道在干嘛，全程抱大腿，也没有记录，不提了。后两次依旧是抱大腿，就当单片机的初次体验吧，玩的开心就好o(<em>￣▽￣</em>)o<a id="more"></a></p>
+<h2 id="冒泡法排序"><a href="#冒泡法排序" class="headerlink" title="冒泡法排序"></a>冒泡法排序</h2><p>&emsp;&emsp;时间：本学期第13周周日12月9号；&emsp;地点：B栋310；&emsp;工具：电脑、单片机工具箱。</p>
+<pre><code class="ASM">CODE SEGMENT
+ASSUME CS:CODE
+ORG 1000H
+START: JMP WHATFKS
+  ARRAY DB 94,93,90,80,99,85,92,79,82,95
+WHATFKS: LEA BX,ARRAY
+  MOV DX,0
+  MOV CX,9
+AGAIN: MOV AL,[BX]
+  MOV AH,[BX+1]
+  CMP AL,AH
+  JBE ABC
+  MOV [BX],AH
+  MOV [BX+1],AL
+  INC DX
+ABC: INC BX
+  LOOP AGAIN
+  CMP DX,0
+  JA WHATFKS
+  LEA BX,ARRAY
+  JMP $
+CODE ENDS
+  END START</code></pre>
+<h2 id="数码管显示"><a href="#数码管显示" class="headerlink" title="数码管显示"></a>数码管显示</h2><p>&emsp;&emsp;时间：本学期第14周12月16号；&emsp;地点：同上；&emsp;工具：同上</p>
+<pre><code class="ASM">CODE SEGMENT
+ASSUME CS:CODE
+ORG 2333H
+START: JMP START0
+       PA EQU 0FF20H
+       PB EQU 0FF21H
+       PC EQU 0FF22H
+       BUF DB ?,?,?,?,?,?
+       X DB -9
+DATA1: DB 0C0H,0F9H,0A4H,0B0H,99H,92H,82H,0F8H,80H,90H,88H,83H,0C6H,0A1H
+       DB 86H,8EH,0FFH,0CH,89H,0DEH,0C7H,8CH,0F3H,0BFH,8FH
+START0: CALL BUF1
+CON1: CALL DISP
+      JMP CON1
+BUF1: MOV BUF,00H
+      MOV BUF+1,00H
+      MOV BUF+2,00H
+      MOV BUF+3,00H
+      MOV AL,X
+      AND AL,AL
+      MOV BUF+4,00H
+      MOV BUF+5,00H
+      JE CON1
+      JNS PLUS
+      MOV BUF+4,0FH
+      MOV BUF+5,0FH
+      JMP CON1
+PLUS: MOV BUF+4,00H
+      MOV BUF+5,01H
+      RET
+DISP: MOV AL,0FFH
+      MOV DX,PA
+      OUT DX,AL
+      MOV CL,0DFH
+      MOV BX,OFFSET BUF
+DIS1: MOV AL,[BX]
+       MOV AH,00H
+       PUSH BX
+       MOV BX,OFFSET DATA1
+       ADD BX,AX
+       MOV AL,[BX]
+       POP BX
+       MOV DX,PB
+       OUT DX,AL
+       MOV AL,CL
+       MOV DX,PA
+       OUT DX,AL
+       PUSH CX
+DIS2:  MOV CX,0FFFFH
+       LOOP $
+       POP CX
+       CMP CL,0FEH
+       JZ LX1
+       MOV AL,0FEH
+       MOV DX,PA
+       OUT DX,AL
+       INC BX
+       ROR CL,1
+       JMP DIS1
+LX1:   MOV AL,0FEH
+       MOV DX,PB
+       OUT DX,AL
+       RET
+CODE ENDS
+  END START</code></pre>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&emsp;&emsp;拖更了一整个元旦假期，睡得晚起的也晚，前两天下大雪去江边玩了两小时，昨天晚上又去吃火锅、看烟花。如果没有期末考试跟在屁股后头的话，假期还是很舒服的。第十六周就好好复习吧，熬过两周考试周，我就回北方享受暖气了，哦耶o(<em>￣▽￣</em>)o</p>
+<p>元旦已经过了，就给大家拜个早年吧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.icelu.top/2018-12-23-weiji_shiyan_jilu.html" data-id="ck3v168oz0000qcuu5rit02vx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiyan/" rel="tag">实验</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weiji/" rel="tag">微机</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019-05-20-weiji_1.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          专业综合实验微机部分（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018-12-06-website_build_process_problems.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">建站历程以及遇到的问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/study/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/build/">维护</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shiyan/" rel="tag">实验</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weiji/" rel="tag">微机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/shiyan/" style="font-size: 20px;">实验</a> <a href="/tags/weiji/" style="font-size: 20px;">微机</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">记录</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019-11-03-dianshiju.html">看剧记录</a>
+          </li>
+        
+          <li>
+            <a href="/2019-08-21-common-commands.html">常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_3.html">专业综合实验微机部分（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_2.html">专业综合实验微机部分（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2019-05-20-weiji_1.html">专业综合实验微机部分（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 半枫<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
