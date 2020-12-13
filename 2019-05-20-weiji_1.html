@@ -1,162 +1,157 @@
+
+
+
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="en">
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="前言&amp;emsp;&amp;emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。 &amp;emsp;&amp;emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验">
-<meta name="keywords" content="微机,实验">
-<meta property="og:type" content="article">
-<meta property="og:title" content="专业综合实验微机部分（一）">
-<meta property="og:url" content="http:&#x2F;&#x2F;blog.icelu.top&#x2F;2019-05-20-weiji_1.html">
-<meta property="og:site_name" content="流冰之地">
-<meta property="og:description" content="前言&amp;emsp;&amp;emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。 &amp;emsp;&amp;emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-20T13:22:50.220Z">
-<meta name="twitter:card" content="summary">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>专业综合实验微机部分（一）</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- persian styles -->
-    
-      <link rel="stylesheet" href="/css/rtl.css">
-    
-    <!-- rss -->
-    
-    
-</head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-         
-          <li><a href="/categories/">分类</a></li>
-         
-          <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019-05-20-weiji_2.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018-12-23-weiji_shiyan_jilu.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.icelu.top/2019-05-20-weiji_1.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://blog.icelu.top/2019-05-20-weiji_1.html&text=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.icelu.top/2019-05-20-weiji_1.html&is_video=false&description=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=专业综合实验微机部分（一）&body=Check out this article: http://blog.icelu.top/2019-05-20-weiji_1.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.icelu.top/2019-05-20-weiji_1.html&name=专业综合实验微机部分（一）&description=&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验报告。"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.icelu.top/2019-05-20-weiji_1.html&t=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验内容"><span class="toc-number">2.</span> <span class="toc-text">实验内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验程序"><span class="toc-number">3.</span> <span class="toc-text">实验程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验内容一"><span class="toc-number">3.1.</span> <span class="toc-text">实验内容一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验内容二"><span class="toc-number">3.2.</span> <span class="toc-text">实验内容二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验内容三"><span class="toc-number">3.3.</span> <span class="toc-text">实验内容三</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index py4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        专业综合实验微机部分（一）
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">流冰之地</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2019-05-20T11:02:16.000Z" itemprop="datePublished">2019-05-20</time>
-        
-        (Updated: <time datetime="2019-05-20T13:22:50.220Z" itemprop="dateModified">2019-05-20</time>)
-        
-      
-    </div>
-
-
-      
-    <div class="article-category">
-        <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/study/">学习</a>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/shiyan/" rel="tag">实验</a>, <a class="tag-link" href="/tags/weiji/" rel="tag">微机</a>
-    </div>
-
-
-    </div>
-  </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  专业综合实验微机部分（一） |    流冰之地</title>
+  <meta name="description" content="AAAAAAAA.">
+  <!-- 标签页图标 -->
   
 
-  <div class="content" itemprop="articleBody">
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。</p>
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  <link rel="stylesheet" href="/HEXO/public/css/white.css">
+  <!-- 代码高亮 -->
+  
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+    
+  
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/HEXO/public/">
+          流冰之地
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/HEXO/public/index.html" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              主页
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              文档
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/categories" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              分类
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/tags" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              标签
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              关于
+            </li>
+          </a>
+        
+        
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/HEXO/public/">
+        流冰之地
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/HEXO/public/index.html" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>主页</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>文档</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/categories" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>分类</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/tags" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>标签</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>关于</span>
+      </div>
+    </a>
+  
+  
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">专业综合实验微机部分（一）</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">5月 20 2019</div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。</p>
 <p>&emsp;&emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验报告。<a id="more"></a></p>
 <h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>1.计数器0工作方式0，即计数结束中断，OUT与灯L1连接，CLK选择连接左下方T0-T7插口中的一个。T0-T7为分频器输出频率，实验箱频率源为8MHz；T0-T7=4MHz，2MHz，1MHz，500KHz，250KHz，62500Hz，31250Hz；从中选一个插口，即选一种频率（频率是指1s内输入的脉冲数）；要求计数器初值等价于时长1s。</p>
 <p>2.计数器工作方式1，OUT灯L2连接，GATE连接开关K1，CLK同上设计（可任选一个频率及计数器初值）。观察开关闭合时，灯的亮灭规律。</p>
@@ -223,130 +218,140 @@ CODE    ENDS
 END     START</code></pre>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>照例是抱霏霏的大腿才得以完成，表示感谢</p>
 
+        <!-- 分类文章 -->
+        
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">学习</div>
+            <ul>
+            
+            
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/HEXO/public/2018-12-23-weiji_shiyan_jilu.html" class="post-categoris-bottom-link">
+                  微机实验记录
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/HEXO/public/2019-05-20-weiji_1.html" class="post-categoris-bottom-link">
+                  专业综合实验微机部分（一）
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/HEXO/public/2019-05-20-weiji_2.html" class="post-categoris-bottom-link">
+                  专业综合实验微机部分（二）
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/HEXO/public/2019-05-20-weiji_3.html" class="post-categoris-bottom-link">
+                  专业综合实验微机部分（三）
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+            
+            
+            </ul>
+
+          </div>
+
+        
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#前言"><span class="space-toc-text">前言</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#实验内容"><span class="space-toc-text">实验内容</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#实验程序"><span class="space-toc-text">实验程序</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#结语"><span class="space-toc-text">结语</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    
   </div>
 </article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-         
-          <li><a href="/categories/">分类</a></li>
-         
-          <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验内容"><span class="toc-number">2.</span> <span class="toc-text">实验内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验程序"><span class="toc-number">3.</span> <span class="toc-text">实验程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验内容一"><span class="toc-number">3.1.</span> <span class="toc-text">实验内容一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验内容二"><span class="toc-number">3.2.</span> <span class="toc-text">实验内容二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验内容三"><span class="toc-number">3.3.</span> <span class="toc-text">实验内容三</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.icelu.top/2019-05-20-weiji_1.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://blog.icelu.top/2019-05-20-weiji_1.html&text=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.icelu.top/2019-05-20-weiji_1.html&is_video=false&description=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=专业综合实验微机部分（一）&body=Check out this article: http://blog.icelu.top/2019-05-20-weiji_1.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://blog.icelu.top/2019-05-20-weiji_1.html&title=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.icelu.top/2019-05-20-weiji_1.html&name=专业综合实验微机部分（一）&description=&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;这已经是大三下学期了，专业综合实验有数电部分和微机部分，数电用FPGA开发板和Verilog语言；微机部分依旧是实验箱和汇编语言。三月份做的实验被我拖到五月份，前几天刚做完TTL交通灯，集成电路和电子器件的实验又马上到来。我抓紧先把微机的坑给填上。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;第一次微机实验在2019年3月12号，名称：8253定时计数实验，分三个内容，以下开始复制粘贴实验报告。"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.icelu.top/2019-05-20-weiji_1.html&t=专业综合实验微机部分（一）" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
   </div>
 </div>
 
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2018 to 2020 半枫
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-         
-          <li><a href="/categories/">分类</a></li>
-         
-          <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-  <div style="margin:0px auto">
-  <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png"><a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">冀ICP备19038061号</a>
-  </div>
-</footer>
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>Power by <a href="http://hexo.io/" target="_blank" rel="noopener">Hexo</a> Theme by <a href="https://github.com/FuShaoLei/hexo-theme-white" target="_blank" rel="noopener">White</a></p>
 
     </div>
-    <!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="index.html" target="_blank">
+                <i class="ri-vip-crown-2-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="https://github.com/wuflying" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:nnlaan@163.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
 
-    <!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<!-- clipboard -->
 
-  <script src="/lib/clipboard/clipboard.min.js"></script>
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
-    // mount it!
-    $(".highlight .code pre").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      target: function(trigger) {
-        return trigger.nextElementSibling;
-      }
-    });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功!");
-      e.clearSelection();
-    })
-  })
-  </script>
 
-<script src="/js/main.js"></script>
-<!-- search -->
 
-<!-- Google Analytics -->
 
-<!-- Baidu Analytics -->
+<script src="/HEXO/public/js/white.js"></script>
 
-<!-- Disqus Comments -->
 
+    
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    
 
 </body>
 </html>

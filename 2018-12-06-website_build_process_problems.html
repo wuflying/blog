@@ -1,165 +1,157 @@
+
+
+
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="en">
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="历程起源&amp;emsp;&amp;emsp;原因很简单啊，就是想在Qzone、朋友圈之外的地方找一个清净之地，不被人打扰。不用担心没人点赞，不用担心没人回复，也不用担心分组屏蔽这些问题。真正的发出去就完事的地方。">
-<meta name="keywords" content="Hexo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="建站历程以及遇到的问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;blog.icelu.top&#x2F;2018-12-06-website_build_process_problems.html">
-<meta property="og:site_name" content="流冰之地">
-<meta property="og:description" content="历程起源&amp;emsp;&amp;emsp;原因很简单啊，就是想在Qzone、朋友圈之外的地方找一个清净之地，不被人打扰。不用担心没人点赞，不用担心没人回复，也不用担心分组屏蔽这些问题。真正的发出去就完事的地方。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;12&#x2F;06&#x2F;5c091cd18da81.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;12&#x2F;09&#x2F;5c0d2c56adbce.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;12&#x2F;09&#x2F;5c0d2da2cc0a7.png">
-<meta property="og:updated_time" content="2019-08-21T11:43:50.559Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;12&#x2F;06&#x2F;5c091cd18da81.png">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>建站历程以及遇到的问题</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- persian styles -->
-    
-      <link rel="stylesheet" href="/css/rtl.css">
-    
-    <!-- rss -->
-    
-    
-</head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-         
-          <li><a href="/categories/">分类</a></li>
-         
-          <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2018-12-23-weiji_shiyan_jilu.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018-12-05-hello-world.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.icelu.top/2018-12-06-website_build_process_problems.html" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&text=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&is_video=false&description=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=建站历程以及遇到的问题&body=Check out this article: http://blog.icelu.top/2018-12-06-website_build_process_problems.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&name=建站历程以及遇到的问题&description=&lt;h2 id=&#34;历程&#34;&gt;&lt;a href=&#34;#历程&#34; class=&#34;headerlink&#34; title=&#34;历程&#34;&gt;&lt;/a&gt;历程&lt;/h2&gt;&lt;h3 id=&#34;起源&#34;&gt;&lt;a href=&#34;#起源&#34; class=&#34;headerlink&#34; title=&#34;起源&#34;&gt;&lt;/a&gt;起源&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;原因很简单啊，就是想在Qzone、朋友圈之外的地方找一个清净之地，不被人打扰。不用担心没人点赞，不用担心没人回复，也不用担心分组屏蔽这些问题。真正的发出去就完事的地方。" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&t=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#历程"><span class="toc-number">1.</span> <span class="toc-text">历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#起源"><span class="toc-number">1.1.</span> <span class="toc-text">起源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展"><span class="toc-number">1.2.</span> <span class="toc-text">发展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题与解决"><span class="toc-number">2.</span> <span class="toc-text">问题与解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加自定义首页"><span class="toc-number">2.1.</span> <span class="toc-text">添加自定义首页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定自定义域名"><span class="toc-number">2.2.</span> <span class="toc-text">绑定自定义域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依旧是自定义首页"><span class="toc-number">2.3.</span> <span class="toc-text">依旧是自定义首页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index py4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        建站历程以及遇到的问题
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">流冰之地</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2018-12-06T09:24:49.000Z" itemprop="datePublished">2018-12-06</time>
-        
-        (Updated: <time datetime="2019-08-21T11:43:50.559Z" itemprop="dateModified">2019-08-21</time>)
-        
-      
-    </div>
-
-
-      
-    <div class="article-category">
-        <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/build/">维护</a>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/Hexo/" rel="tag">Hexo</a>
-    </div>
-
-
-    </div>
-  </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  建站历程以及遇到的问题 |    流冰之地</title>
+  <meta name="description" content="AAAAAAAA.">
+  <!-- 标签页图标 -->
   
 
-  <div class="content" itemprop="articleBody">
-    <h2 id="历程"><a href="#历程" class="headerlink" title="历程"></a>历程</h2><h3 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h3><p>&emsp;&emsp;原因很简单啊，就是想在Qzone、朋友圈之外的地方找一个清净之地，不被人打扰。不用担心没人点赞，不用担心没人回复，也不用担心分组屏蔽这些问题。真正的发出去就完事的地方。<a id="more"></a><br>&emsp;&emsp;微博太乱了，什么人都有，稍不注意就会招来一群喷子、键盘侠。而且那几乎是一个娱乐至上的地方，用来抽奖，看一看突发资讯差不多。公众号注册过一个，过了大半年终于想起了密码，还要排版，还要配图，本人其实比较懒的。上学期快结束那会听说了用GitHub+Hexo可以搭建静态博客的事，就研究了一下。当时<code>localhost:4000</code>本地预览<strong>Hello World</strong>已经出来了，却在SSH连接和push到仓库里出了错，又值临近期末，就放着没管，一直到大概半个月前。</p>
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  <link rel="stylesheet" href="/HEXO/public/css/white.css">
+  <!-- 代码高亮 -->
+  
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+    
+  
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/HEXO/public/">
+          流冰之地
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/HEXO/public/index.html" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              主页
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              文档
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/categories" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              分类
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/tags" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              标签
+            </li>
+          </a>
+        
+          <a href="/HEXO/public/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              关于
+            </li>
+          </a>
+        
+        
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/HEXO/public/">
+        流冰之地
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/HEXO/public/index.html" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>主页</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>文档</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/categories" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>分类</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/tags" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>标签</span>
+      </div>
+    </a>
+  
+    <a href="/HEXO/public/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>关于</span>
+      </div>
+    </a>
+  
+  
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">建站历程以及遇到的问题</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">12月 06 2018</div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <h2 id="历程"><a href="#历程" class="headerlink" title="历程"></a>历程</h2><h3 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h3><p>&emsp;&emsp;原因很简单啊，就是想在Qzone、朋友圈之外的地方找一个清净之地，不被人打扰。不用担心没人点赞，不用担心没人回复，也不用担心分组屏蔽这些问题。真正的发出去就完事的地方。<a id="more"></a><br>&emsp;&emsp;微博太乱了，什么人都有，稍不注意就会招来一群喷子、键盘侠。而且那几乎是一个娱乐至上的地方，用来抽奖，看一看突发资讯差不多。公众号注册过一个，过了大半年终于想起了密码，还要排版，还要配图，本人其实比较懒的。上学期快结束那会听说了用GitHub+Hexo可以搭建静态博客的事，就研究了一下。当时<code>localhost:4000</code>本地预览<strong>Hello World</strong>已经出来了，却在SSH连接和push到仓库里出了错，又值临近期末，就放着没管，一直到大概半个月前。</p>
 <h3 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h3><p>&emsp;&emsp;花开两朵，各表一枝。先说一说<a href="https://github.com/hackerzhou/Love" target="_blank" rel="noopener">hackerzhou</a>在和对象一周年的时候写了一个html，可美了，改变了人们对程序员死板沉闷的一贯印象。看图可能知道的人多一些。</p>
 <p><img src="https://i.loli.net/2018/12/06/5c091cd18da81.png" alt="右侧时间是从2011年那会儿开始的，不要惊讶"></p>
 <p>&emsp;&emsp;接着再说另一表，前俩月偶然间从论坛里得到了源代码，并得知了这段故事。（当时的我并没有想到，把源代码保存下来会导致现在的我写博客的第一篇文章ing。）几周前，一位学弟来我这里交接工作看见了我电脑里的<em>love-master.zip<em>，就说要改一改给对象看，他觉得放在网上，给对象一个链接而不是一堆html、css、js文件效果更好。可是服务器买不起，买得起也不会用，你说我一个学物理的，怎么就会操作服务器了呢？不得不承认，灵感就产生于一瞬间，我那闲置的GitHub不就是一个免费的网站空间吗，我可真是个天才o(</em>￣▽￣</em>)o。然后我又进一步了解到GitHub可以绑定自定义域名，阿里云新用户买个域名又便宜的很，跟学弟一拍板儿，立马买了<code>**yatou.我爱你</code>这个域名。一番操作以后，绑定成功，只等学弟考完电磁学专心改代码了。</p>
@@ -184,129 +176,133 @@ permalink_defaults:</code></pre>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&emsp;&emsp;前前后后忙了一周，搭建、选主题、优化主题，终于有了成果。还好期中考完比较闲。写这篇文章也不容易，写了一半多没保存，差点想放弃。这是第12周周日的晚上，文件创建于6号，这已经8号了。下周六就是六级了，给自己加油；还有4周就要期末考试了，再次给自己加油。我坚持的事不多，希望这个博客网站能一直更新，也算是给以后留个青春的回忆<code>\(0^◇^0)/</code></p>
 <p>&emsp;&emsp;<strong>SM.MS</strong>提供图床支持，由Typora和VS code编辑器写作。</p>
 
+        <!-- 分类文章 -->
+        
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">维护</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/HEXO/public/2018-12-05-hello-world.html" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/HEXO/public/2018-12-06-website_build_process_problems.html" class="post-categoris-bottom-link">
+                  建站历程以及遇到的问题
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+            
+            
+            
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/HEXO/public/2019-08-21-common-commands.html" class="post-categoris-bottom-link">
+                  常用命令
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            </ul>
+
+          </div>
+
+        
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#历程"><span class="space-toc-text">历程</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#问题与解决"><span class="space-toc-text">问题与解决</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#结语"><span class="space-toc-text">结语</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    
   </div>
 </article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-         
-          <li><a href="/categories/">分类</a></li>
-         
-          <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#历程"><span class="toc-number">1.</span> <span class="toc-text">历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#起源"><span class="toc-number">1.1.</span> <span class="toc-text">起源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展"><span class="toc-number">1.2.</span> <span class="toc-text">发展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题与解决"><span class="toc-number">2.</span> <span class="toc-text">问题与解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加自定义首页"><span class="toc-number">2.1.</span> <span class="toc-text">添加自定义首页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定自定义域名"><span class="toc-number">2.2.</span> <span class="toc-text">绑定自定义域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依旧是自定义首页"><span class="toc-number">2.3.</span> <span class="toc-text">依旧是自定义首页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.icelu.top/2018-12-06-website_build_process_problems.html" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&text=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&is_video=false&description=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=建站历程以及遇到的问题&body=Check out this article: http://blog.icelu.top/2018-12-06-website_build_process_problems.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&title=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&name=建站历程以及遇到的问题&description=&lt;h2 id=&#34;历程&#34;&gt;&lt;a href=&#34;#历程&#34; class=&#34;headerlink&#34; title=&#34;历程&#34;&gt;&lt;/a&gt;历程&lt;/h2&gt;&lt;h3 id=&#34;起源&#34;&gt;&lt;a href=&#34;#起源&#34; class=&#34;headerlink&#34; title=&#34;起源&#34;&gt;&lt;/a&gt;起源&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;原因很简单啊，就是想在Qzone、朋友圈之外的地方找一个清净之地，不被人打扰。不用担心没人点赞，不用担心没人回复，也不用担心分组屏蔽这些问题。真正的发出去就完事的地方。" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.icelu.top/2018-12-06-website_build_process_problems.html&t=建站历程以及遇到的问题" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
   </div>
 </div>
 
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2018 to 2020 半枫
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-         
-          <li><a href="/categories/">分类</a></li>
-         
-          <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-  <div style="margin:0px auto">
-  <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png"><a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">冀ICP备19038061号</a>
-  </div>
-</footer>
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>Power by <a href="http://hexo.io/" target="_blank" rel="noopener">Hexo</a> Theme by <a href="https://github.com/FuShaoLei/hexo-theme-white" target="_blank" rel="noopener">White</a></p>
 
     </div>
-    <!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="index.html" target="_blank">
+                <i class="ri-vip-crown-2-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="https://github.com/wuflying" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:nnlaan@163.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
 
-    <!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<!-- clipboard -->
 
-  <script src="/lib/clipboard/clipboard.min.js"></script>
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
-    // mount it!
-    $(".highlight .code pre").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      target: function(trigger) {
-        return trigger.nextElementSibling;
-      }
-    });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功!");
-      e.clearSelection();
-    })
-  })
-  </script>
 
-<script src="/js/main.js"></script>
-<!-- search -->
 
-<!-- Google Analytics -->
 
-<!-- Baidu Analytics -->
+<script src="/HEXO/public/js/white.js"></script>
 
-<!-- Disqus Comments -->
 
+    
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    
 
 </body>
 </html>
